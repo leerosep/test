@@ -1,64 +1,59 @@
-name: Bug
-description: File a bug report
+name: 🐞 Bug
+description: File a bug/issue
+title: "[BUG] <title>"
+labels: [Bug, Needs Triage]
 body:
-  - type: markdown
-    attributes:
-      value: |
-        Before opening a bug report, please search for the behaviour in the existing issues. 
-        
-        ---
-        
-        Thank you for taking the time to file a bug report. To address this bug as fast as possible, we need some information.
-  - type: input
-    id: os
-    attributes:
-      label: Operating system
-      description: "Which operating system do you use? Please provide the version as well."
-      placeholder: "macOS Big Sur 11.5.2"
-    validations:
-      required: true  
-  - type: input
-    id: laravel
-    attributes:
-      label: Laravel Version
-      description: "Please provide the full Laravel version of your project."
-      placeholder: "v8.6.1"
-    validations:
+- type: checkboxes
+  attributes:
+    label: Is there an existing issue for this?
+    description: Please search to see if an issue already exists for the bug you encountered.
+    options:
+    - label: I have searched the existing issues
       required: true
-  - type: input
-    id: php
-    attributes:
-      label: PHP Version
-      description: "Please provide the full PHP version that is powering Tinkerwell."
-      placeholder: "PHP 8.0.7, built: Jun  4 2021 01:50:04"
-    validations:
-      required: true
-  - type: dropdown
-    id: location
-    attributes:
-      label: Project Location
-      description: Where is the project located?
-      options:
-        - Local
-        - Remote
-        - Somewhere else (please specify in the description!)
-    validations:
-      required: true
-  - type: textarea
-    id: bug-description
-    attributes:
-      label: Bug description
-      description: What happened?
-    validations:
-      required: true
-  - type: textarea
-    id: steps
-    attributes:
-      label: Steps to reproduce
-      description: Which steps do we need to take to reproduce this error?
-  - type: textarea
-    id: logs
-    attributes:
-      label: Relevant log output
-      description: If applicable, provide relevant log output. No need for backticks here.
-      render: shell
+- type: textarea
+  attributes:
+    label: Current Behavior
+    description: A concise description of what you're experiencing.
+  validations:
+    required: false
+- type: textarea
+  attributes:
+    label: Expected Behavior
+    description: A concise description of what you expected to happen.
+  validations:
+    required: false
+- type: textarea
+  attributes:
+    label: Steps To Reproduce
+    description: Steps to reproduce the behavior.
+    placeholder: |
+      1. In this environment...
+      2. With this config...
+      3. Run '...'
+      4. See error...
+  validations:
+    required: false
+- type: textarea
+  attributes:
+    label: Environment
+    description: |
+      examples:
+        - **OS**: Ubuntu 20.04
+        - **Node**: 13.14.0
+        - **npm**: 7.6.3
+    value: |
+        - OS:
+        - Node:
+        - npm:
+    render: markdown
+  validations:
+    required: false
+- type: textarea
+  attributes:
+    label: Anything else?
+    description: |
+      Links? References? Anything that will give us more context about the issue you are encountering!
+
+      Tip: You can attach images or log files by clicking this area to highlight it and then dragging files in.
+  validations:
+    required: false
